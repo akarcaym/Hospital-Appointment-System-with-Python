@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+
+
+{% block body%}
+{{app_time.appointment_with}}
+
+<style>
+    h1{
+        color: yellow;
+        text-align:center;
+    }
+    body{
+    background-image: url("https://www.esmsolutions.com/wp-content/uploads/2018/02/appointment-background.jpg");
+    }
+    b{
+        color:white;
+    }
+</style>
+<h1>Available Dates</h1><br>
+{% for item in app_time%}
+<center><b>{{item.date}} | {{item.time_start}} - {{item.time_end}}</b><button><a href="/appointment/{{item.id}}/">Book</a></button><br></center>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'app/base.html' %}
+
+
+{% block body%}
+
+
+<style>
+body{
+  background-image: url("https://emerging-europe.com/wp-content/uploads/2018/01/bigstock-Male-Doctor-In-The-Hospital-190586731.jpg");
+  }
+h4{
+    color:Maroon;
+       }
+ul {
+  color:black;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+    color: black;
+    float: up;
+    margin: 10px;
+}
+a{
+    color: #660033;
+}
+
+.button1 {
+    color: black !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+
+.button1:hover {
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s
+}
+</style>
+<center><font size="5"><a href="/doctorlist/1/">Neurology</a></font><br>
+<center><font size="5"><a href="/doctorlist/2/">Ear, Nose and Throat Disorders</a></font><br>
+<center><font size="5"><a href="/doctorlist/3/">Diet and Nutrition</a></font><br>
+<center><font size="5"><a href="/doctorlist/4/">Cardiology</a></font><br>
+<center><font size="5"><a href="/doctorlist/5/">Psychology</a></font><br>
+<h4>If You Have Any of These, Choose: Cardiology</h4>
+<ul>
+  <li>Difficulty in breathing</li>
+  <li>Weakness</li>
+  <li>Tingle on the left arm</li>
+</ul>
+<h4>If You Have Any of These, Choose: Neurology</h4>
+<ul>
+  <li>Headache</li>
+  <li>Dizziness</li>
+  <li>Loss of balance</li>
+</ul>
+
+{% endblock %}
+
+
+
+

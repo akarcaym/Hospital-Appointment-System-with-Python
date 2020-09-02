@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+{% block body%}
+{% for item in data%}
+{% endfor %}
+<style>
+    h1{
+        color:Maroon;
+    }
+    p{
+      color: Black;
+      font-size: 26px;
+      text-align: center;
+      margin: 15px;
+    }
+    body{
+    background-image: url("https://image.freepik.com/free-photo/blur-hospital_1203-7972.jpg");
+    }
+</style>
+<center><h1>Hospital Appointment System</h1></center><br><br>
+<p>Our goal is to make appointment system easy to use and clear </p><br>
+<p>You can use our site to get appointment</p><br>
+<p>You can cancel your appointments whenever you like</p><br>
+<p>After appointment you can rate your doctor</p>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+
+
+{% block body%}
+<style>
+    body{
+        background-image: url("https://www.esmsolutions.com/wp-content/uploads/2018/02/appointment-background.jpg")
+    }
+    p{
+        color:red
+    }
+    h1{
+        color:yellow;
+        text-align:center
+    }
+    a{
+        color: white;
+        text-align: center;
+    }
+
+</style>
+<h1>Patient Appointments</h1><br>
+<p>{{err_msg}}</p>
+{% for item in data%}
+Patient :<a>{{item.user.firstname}} {{item.user.lastname}} | Birthday : {{item.user.birthday}} </a><br>
+Date : <a>{{item.date}} Time : {{item.time_start}} - {{item.time_end}} </a><br>
+<hr>
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'app/base.html' %}
+
+
+{% block body%}
+<style>
+    body{
+        background-image: url("https://www.esmsolutions.com/wp-content/uploads/2018/02/appointment-background.jpg")
+        }
+    
+    z{
+        bottom :500;
+        text-align: center;
+        border-style: solid;
+        border-radius: 60px;
+        border-color: #e60000;
+        
+    }
+    
+    i{
+    color:white;
+    }
+</style>
+<h1 class="lead" style="text-align: center; color:yellow">Your Appointments </h1>
+<div style=" text-align: center; ">
+    <i>   
+
+<z><b>Please be there 15 minutes ago</b></z><br>
+{% for item in data%}{% csrf_token %}
+    {% if item.old == False %}
+    <b>Doctor name : </b>{{item.appointment_with.user.firstname}} {{item.appointment_with.user.lastname}} <b>Department : </b>{{item.appointment_with.get_department_display}} <br>
+    <b> Date :</b> {{item.date}} <b>Time :</b> {{item.time_start}} - {{item.time_end}} <button><a href="/delete/{{item.id}}/">Cancel</button></a><br>
+    
+    {% endif %}
+{% endfor %}
+
+<hr></i>
+<p class="lead" style="color:yellow;">Past Appointments </p>
+
+
+{% for item in data%}
+{% if item.old == True %}
+
+<div style="color:gray;">
+<b>Doctor name :</b> {{item.appointment_with.user.firstname}} {{item.appointment_with.user.lastname}} <b>Department : </b> {{item.appointment_with.get_department_display}} <br>
+<b> Date :</b>{{item.date}} <b>Time :</b> {{item.time_start}} - {{item.time_end}}
+    {% if item.app_rate == 0 %} 
+    <form method="post" action="/rate/{{item.id}}/">
+        {% csrf_token %}
+        <input type="radio" name="rate1" id="1" value="1">1
+        <input type="radio" name="rate2" id="2" value="2">2
+        <input type="radio" name="rate3" id="3" value="3">3
+
+        <button class="btn btn-lg btn-sm btn-primary" type="submit">Rate</button>
+    </form>
+    {% else %}
+    <br>Your rate is : {{item.app_rate}}
+{% endif %}
+{% endif %}
+{% endfor %}
+</div>
+
+</div>
+    
+
+
+
+{% endblock %}
